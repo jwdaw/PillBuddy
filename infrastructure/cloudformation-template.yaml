@@ -1,0 +1,111 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: "PillBuddy Backend Infrastructure - DynamoDB Tables"
+
+Resources:
+  # Devices Table
+  DevicesTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: PillBuddy_Devices
+      AttributeDefinitions:
+        - AttributeName: device_id
+          AttributeType: S
+      KeySchema:
+        - AttributeName: device_id
+          KeyType: HASH
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      Tags:
+        - Key: Project
+          Value: PillBuddy
+        - Key: Environment
+          Value: Hackathon
+
+  # Prescriptions Table
+  PrescriptionsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: PillBuddy_Prescriptions
+      AttributeDefinitions:
+        - AttributeName: device_id
+          AttributeType: S
+        - AttributeName: slot
+          AttributeType: N
+      KeySchema:
+        - AttributeName: device_id
+          KeyType: HASH
+        - AttributeName: slot
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 5
+      Tags:
+        - Key: Project
+          Value: PillBuddy
+        - Key: Environment
+          Value: Hackathon
+
+  # Events Table with TTL
+  EventsTable:
+    Type: AWS::DynamoDB::Table
+    Properties:
+      TableName: PillBuddy_Events
+      AttributeDefinitions:
+        - AttributeName: device_id
+          AttributeType: S
+        - AttributeName: timestamp
+          AttributeType: N
+      KeySchema:
+        - AttributeName: device_id
+          KeyType: HASH
+        - AttributeName: timestamp
+          KeyType: RANGE
+      ProvisionedThroughput:
+        ReadCapacityUnits: 5
+        WriteCapacityUnits: 10
+      TimeToLiveSpecification:
+        AttributeName: ttl
+        Enabled: true
+      Tags:
+        - Key: Project
+          Value: PillBuddy
+        - Key: Environment
+          Value: Hackathon
+
+Outputs:
+  DevicesTableName:
+    Description: Name of the Devices DynamoDB table
+    Value: !Ref DevicesTable
+    Export:
+      Name: PillBuddyDevicesTableName
+
+  DevicesTableArn:
+    Description: ARN of the Devices DynamoDB table
+    Value: !GetAtt DevicesTable.Arn
+    Export:
+      Name: PillBuddyDevicesTableArn
+
+  PrescriptionsTableName:
+    Description: Name of the Prescriptions DynamoDB table
+    Value: !Ref PrescriptionsTable
+    Export:
+      Name: PillBuddyPrescriptionsTableName
+
+  PrescriptionsTableArn:
+    Description: ARN of the Prescriptions DynamoDB table
+    Value: !GetAtt PrescriptionsTable.Arn
+    Export:
+      Name: PillBuddyPrescriptionsTableArn
+
+  EventsTableName:
+    Description: Name of the Events DynamoDB table
+    Value: !Ref EventsTable
+    Export:
+      Name: PillBuddyEventsTableName
+
+  EventsTableArn:
+    Description: ARN of the Events DynamoDB table
+    Value: !GetAtt EventsTable.Arn
+    Export:
+      Name: PillBuddyEventsTableArn

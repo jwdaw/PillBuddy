@@ -1,0 +1,32 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "amzn1.echo-api.session.test123",
+    "application": {
+      "applicationId": "amzn1.ask.skill.7b43b770-5a10-48d0-bec3-c3b2e521a116"
+    },
+    "user": {
+      "userId": "amzn1.ask.account.test"
+    }
+  },
+  "context": {
+    "System": {
+      "application": {
+        "applicationId": "amzn1.ask.skill.7b43b770-5a10-48d0-bec3-c3b2e521a116"
+      },
+      "user": {
+        "userId": "amzn1.ask.account.test"
+      },
+      "device": {
+        "deviceId": "pillbuddy-esp32-1"
+      }
+    }
+  },
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "amzn1.echo-api.request.test123",
+    "timestamp": "2026-02-28T09:30:00Z",
+    "locale": "en-US"
+  }
+}

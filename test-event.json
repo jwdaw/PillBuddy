@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": true,
+    "sessionId": "test",
+    "application": {
+      "applicationId": "amzn1.ask.skill.7b43b770-5a10-48d0-bec3-c3b2e521a116"
+    },
+    "user": {
+      "userId": "esp32_001"
+    }
+  },
+  "request": {
+    "type": "LaunchRequest",
+    "requestId": "test",
+    "timestamp": "2024-01-01T00:00:00Z",
+    "locale": "en-US"
+  }
+}

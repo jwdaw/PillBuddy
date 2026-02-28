@@ -1,0 +1,4 @@
+# AWS SDK for Python (boto3 is included in Lambda runtime, but listed for reference)
+# boto3>=1.28.0
+
+# No additional dependencies required - using only AWS SDK and Python standard library

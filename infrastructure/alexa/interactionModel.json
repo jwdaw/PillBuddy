@@ -1,0 +1,237 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "pill bottle",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "SetupSlotIntent",
+          "slots": [
+            {
+              "name": "prescriptionName",
+              "type": "PrescriptionNameType",
+              "samples": ["{prescriptionName}"]
+            },
+            {
+              "name": "pillCount",
+              "type": "AMAZON.NUMBER",
+              "samples": ["{pillCount}", "{pillCount} pills"]
+            },
+            {
+              "name": "hasRefills",
+              "type": "HasRefillsType",
+              "samples": ["{hasRefills}", "{hasRefills} refills"]
+            }
+          ],
+          "samples": [
+            "The prescription is {prescriptionName} with {pillCount} pills",
+            "{prescriptionName} has {pillCount} pills and {hasRefills} refills",
+            "Set up {prescriptionName}",
+            "{prescriptionName} with {pillCount} pills",
+            "I have {prescriptionName}",
+            "{prescriptionName} {pillCount} pills {hasRefills} refills",
+            "Add {prescriptionName}",
+            "Configure {prescriptionName}",
+            "My prescription is {prescriptionName}",
+            "It's {prescriptionName} with {pillCount} pills",
+            "{prescriptionName} bottle has {pillCount} pills"
+          ]
+        },
+        {
+          "name": "QueryStatusIntent",
+          "slots": [],
+          "samples": [
+            "What's my status",
+            "How many pills do I have",
+            "Check my bottles",
+            "What's in my PillBuddy",
+            "Tell me my pill counts",
+            "Status",
+            "Check status",
+            "What pills do I have",
+            "Show my medications",
+            "List my prescriptions",
+            "What's my pill count",
+            "How many pills are left",
+            "Check my medication",
+            "What bottles do I have"
+          ]
+        },
+        {
+          "name": "StartSetupIntent",
+          "slots": [],
+          "samples": [
+            "Start setup",
+            "Begin setup",
+            "Set up my bottles",
+            "Configure my bottles",
+            "Start",
+            "Begin",
+            "Setup",
+            "Let's start",
+            "Get started",
+            "Initialize"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "name": "PrescriptionNameType",
+          "values": [
+            { "name": { "value": "Aspirin" } },
+            { "name": { "value": "Ibuprofen" } },
+            { "name": { "value": "Acetaminophen" } },
+            { "name": { "value": "Tylenol" } },
+            { "name": { "value": "Advil" } },
+            { "name": { "value": "Vitamin D" } },
+            { "name": { "value": "Vitamin C" } },
+            { "name": { "value": "Calcium" } },
+            { "name": { "value": "Multivitamin" } },
+            { "name": { "value": "Fish Oil" } },
+            { "name": { "value": "Lisinopril" } },
+            { "name": { "value": "Metformin" } },
+            { "name": { "value": "Atorvastatin" } },
+            { "name": { "value": "Omeprazole" } },
+            { "name": { "value": "Levothyroxine" } }
+          ]
+        },
+        {
+          "name": "HasRefillsType",
+          "values": [
+            {
+              "name": {
+                "value": "yes",
+                "synonyms": [
+                  "yeah",
+                  "yep",
+                  "sure",
+                  "of course",
+                  "definitely",
+                  "affirmative"
+                ]
+              }
+            },
+            {
+              "name": {
+                "value": "no",
+                "synonyms": ["nope", "nah", "negative", "not really", "no way"]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SetupSlotIntent",
+          "delegationStrategy": "SKILL_RESPONSE",
+          "slots": [
+            {
+              "name": "prescriptionName",
+              "type": "PrescriptionNameType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.prescriptionName"
+              }
+            },
+            {
+              "name": "pillCount",
+              "type": "AMAZON.NUMBER",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.pillCount"
+              },
+              "validations": [
+                {
+                  "type": "isGreaterThan",
+                  "prompt": "Slot.Validation.1234567890.pillCount.isGreaterThan",
+                  "value": "0"
+                }
+              ]
+            },
+            {
+              "name": "hasRefills",
+              "type": "HasRefillsType",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.hasRefills"
+              }
+            }
+          ],
+          "confirmationRequired": false,
+          "prompts": {}
+        }
+      ],
+      "delegationStrategy": "SKILL_RESPONSE"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1234567890.prescriptionName",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What's the name of the prescription?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What medication is this?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1234567890.pillCount",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "How many pills are in the bottle?"
+          },
+          {
+            "type": "PlainText",
+            "value": "What's the pill count?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1234567890.hasRefills",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Does this prescription have refills available?"
+          },
+          {
+            "type": "PlainText",
+            "value": "Are refills available for this medication?"
+          }
+        ]
+      },
+      {
+        "id": "Slot.Validation.1234567890.pillCount.isGreaterThan",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "The pill count must be greater than zero. How many pills are in the bottle?"
+          }
+        ]
+      }
+    ]
+  }
+}

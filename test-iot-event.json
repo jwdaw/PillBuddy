@@ -1,0 +1,5 @@
+{
+  "event_type": "slot_state_changed",
+  "slot": 1,
+  "in_holder": false
+}

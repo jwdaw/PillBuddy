@@ -1,0 +1,137 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "pillbuddy",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "SetupSlotIntent",
+          "slots": [
+            {
+              "name": "prescriptionName",
+              "type": "AMAZON.MedicationName",
+              "samples": ["{prescriptionName}"]
+            },
+            {
+              "name": "pillCount",
+              "type": "AMAZON.NUMBER",
+              "samples": ["{pillCount} pills", "{pillCount}"]
+            },
+            {
+              "name": "hasRefills",
+              "type": "AMAZON.YesNo",
+              "samples": ["{hasRefills} refills", "{hasRefills}"]
+            }
+          ],
+          "samples": [
+            "The prescription is {prescriptionName} with {pillCount} pills",
+            "{prescriptionName} has {pillCount} pills and {hasRefills} refills",
+            "Set up {prescriptionName}",
+            "{prescriptionName} with {pillCount} pills",
+            "I have {prescriptionName}",
+            "{prescriptionName} {pillCount} pills {hasRefills} refills",
+            "The bottle has {prescriptionName} with {pillCount} pills",
+            "It's {prescriptionName} and it has {pillCount} pills",
+            "This is {prescriptionName}",
+            "{prescriptionName} and {hasRefills} I have refills"
+          ]
+        },
+        {
+          "name": "QueryStatusIntent",
+          "slots": [],
+          "samples": [
+            "What's my status",
+            "How many pills do I have",
+            "Check my bottles",
+            "What's in my PillBuddy",
+            "Tell me my pill counts",
+            "What are my prescriptions",
+            "Show me my status",
+            "Give me an update",
+            "What pills do I have",
+            "Check my prescriptions"
+          ]
+        }
+      ],
+      "types": []
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "SetupSlotIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "prescriptionName",
+              "type": "AMAZON.MedicationName",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.123456789"
+              }
+            },
+            {
+              "name": "pillCount",
+              "type": "AMAZON.NUMBER",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.987654321"
+              }
+            },
+            {
+              "name": "hasRefills",
+              "type": "AMAZON.YesNo",
+              "confirmationRequired": false,
+              "elicitationRequired": true,
+              "prompts": {
+                "elicitation": "Elicit.Slot.1234567890.111111111"
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.1234567890.123456789",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "What is the name of the prescription?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1234567890.987654321",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "How many pills are in the bottle?"
+          }
+        ]
+      },
+      {
+        "id": "Elicit.Slot.1234567890.111111111",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "Does this prescription have refills available?"
+          }
+        ]
+      }
+    ]
+  }
+}

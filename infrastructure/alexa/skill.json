@@ -1,0 +1,98 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Smart pill bottle holder with voice-controlled setup and monitoring",
+          "examplePhrases": [
+            "Alexa, open pill buddy",
+            "Alexa, ask pill buddy what's my status",
+            "Alexa, tell pill buddy to set up my bottles"
+          ],
+          "keywords": [
+            "pill",
+            "medication",
+            "reminder",
+            "health",
+            "senior",
+            "pillbox"
+          ],
+          "name": "PillBuddy",
+          "description": "PillBuddy helps you manage your pill bottles with voice commands. Set up your prescriptions, check pill counts, and get refill reminders. Perfect for seniors and caregivers.",
+          "smallIconUri": "file://assets/icon_108.png",
+          "largeIconUri": "file://assets/icon_512.png"
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "1. Say 'Alexa, open pillbuddy' to start setup\n2. Follow voice prompts to configure 3 pill bottle slots\n3. Say 'Alexa, ask pillbuddy what's my status' to check pill counts\n4. Ensure ESP32 device is online and connected to AWS IoT Core",
+      "category": "HEALTH_AND_FITNESS",
+      "distributionCountries": ["US"]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:339712753637:function:PillBuddy_AlexaHandler"
+        },
+        "interfaces": [
+          {
+            "type": "ALEXA_PRESENTATION_APL",
+            "supportedViewports": [
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 960,
+                "maxWidth": 1280,
+                "minHeight": 600,
+                "maxHeight": 800
+              },
+              {
+                "mode": "HUB",
+                "shape": "RECTANGLE",
+                "minWidth": 1280,
+                "maxWidth": 1920,
+                "minHeight": 800,
+                "maxHeight": 1200
+              }
+            ]
+          }
+        ]
+      }
+    },
+    "manifestVersion": "1.0",
+    "permissions": [
+      {
+        "name": "alexa::devices:all:notifications:write"
+      }
+    ],
+    "privacyAndCompliance": {
+      "allowsPurchases": false,
+      "usesPersonalInfo": false,
+      "isChildDirected": false,
+      "isExportCompliant": true,
+      "containsAds": false,
+      "locales": {
+        "en-US": {
+          "privacyPolicyUrl": "https://example.com/privacy",
+          "termsOfUseUrl": "https://example.com/terms"
+        }
+      }
+    },
+    "events": {
+      "endpoint": {
+        "uri": "arn:aws:lambda:us-east-1:339712753637:function:PillBuddy_AlexaHandler"
+      },
+      "subscriptions": [
+        {
+          "eventName": "SKILL_PROACTIVE_SUBSCRIPTION_CHANGED"
+        }
+      ],
+      "regions": {
+        "NA": {
+          "endpoint": {
+            "uri": "arn:aws:lambda:us-east-1:339712753637:function:PillBuddy_AlexaHandler"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "_comment": "Test events for ESP32 MQTT messages (raw format from device)",
+  "_note": "These simulate what your ESP32 publishes to pillbuddy/events/pillbuddy-esp32-1",
+  "_usage": "Publish these to IoT Core to test the full flow: ESP32 → IoT Rule → Lambda",
+
+  "bottle_removed_slot1": {
+    "event_type": "slot_state_changed",
+    "slot": 1,
+    "in_holder": false
+  },
+
+  "bottle_returned_slot1": {
+    "event_type": "slot_state_changed",
+    "slot": 1,
+    "in_holder": true
+  },
+
+  "bottle_removed_slot2": {
+    "event_type": "slot_state_changed",
+    "slot": 2,
+    "in_holder": false
+  },
+
+  "bottle_returned_slot2": {
+    "event_type": "slot_state_changed",
+    "slot": 2,
+    "in_holder": true
+  },
+
+  "bottle_removed_slot3": {
+    "event_type": "slot_state_changed",
+    "slot": 3,
+    "in_holder": false
+  },
+
+  "bottle_returned_slot3": {
+    "event_type": "slot_state_changed",
+    "slot": 3,
+    "in_holder": true
+  }
+}

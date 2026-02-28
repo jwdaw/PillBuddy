@@ -1,0 +1,242 @@
+{
+  "LaunchRequest": {
+    "version": "1.0",
+    "session": {
+      "new": true,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      }
+    },
+    "request": {
+      "type": "LaunchRequest",
+      "requestId": "amzn1.echo-api.request.test123",
+      "timestamp": "2024-01-01T00:00:00Z",
+      "locale": "en-US"
+    }
+  },
+  "SetupSlotIntent": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      },
+      "attributes": {
+        "device_id": "esp32_001",
+        "setup_state": {
+          "slots_configured": 0,
+          "current_slot": 1
+        }
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test456",
+      "timestamp": "2024-01-01T00:01:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "SetupSlotIntent",
+        "slots": {
+          "prescriptionName": {
+            "name": "prescriptionName",
+            "value": "Aspirin"
+          },
+          "pillCount": {
+            "name": "pillCount",
+            "value": "30"
+          },
+          "hasRefills": {
+            "name": "hasRefills",
+            "value": "yes"
+          }
+        }
+      }
+    }
+  },
+  "SetupSlotIntent_Slot2": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      },
+      "attributes": {
+        "device_id": "esp32_001",
+        "setup_state": {
+          "slots_configured": 1,
+          "current_slot": 2
+        }
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test789",
+      "timestamp": "2024-01-01T00:02:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "SetupSlotIntent",
+        "slots": {
+          "prescriptionName": {
+            "name": "prescriptionName",
+            "value": "Vitamin D"
+          },
+          "pillCount": {
+            "name": "pillCount",
+            "value": "60"
+          },
+          "hasRefills": {
+            "name": "hasRefills",
+            "value": "no"
+          }
+        }
+      }
+    }
+  },
+  "SetupSlotIntent_Slot3": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      },
+      "attributes": {
+        "device_id": "esp32_001",
+        "setup_state": {
+          "slots_configured": 2,
+          "current_slot": 3
+        }
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test101",
+      "timestamp": "2024-01-01T00:03:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "SetupSlotIntent",
+        "slots": {
+          "prescriptionName": {
+            "name": "prescriptionName",
+            "value": "Blood Pressure Medication"
+          },
+          "pillCount": {
+            "name": "pillCount",
+            "value": "90"
+          },
+          "hasRefills": {
+            "name": "hasRefills",
+            "value": "yes"
+          }
+        }
+      }
+    }
+  },
+  "QueryStatusIntent": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test202",
+      "timestamp": "2024-01-01T00:04:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "QueryStatusIntent",
+        "slots": {}
+      }
+    }
+  },
+  "HelpIntent": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test303",
+      "timestamp": "2024-01-01T00:05:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "AMAZON.HelpIntent",
+        "slots": {}
+      }
+    }
+  },
+  "StopIntent": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test404",
+      "timestamp": "2024-01-01T00:06:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "AMAZON.StopIntent",
+        "slots": {}
+      }
+    }
+  },
+  "CancelIntent": {
+    "version": "1.0",
+    "session": {
+      "new": false,
+      "sessionId": "amzn1.echo-api.session.test123",
+      "application": {
+        "applicationId": "amzn1.ask.skill.test"
+      },
+      "user": {
+        "userId": "esp32_001"
+      }
+    },
+    "request": {
+      "type": "IntentRequest",
+      "requestId": "amzn1.echo-api.request.test505",
+      "timestamp": "2024-01-01T00:07:00Z",
+      "locale": "en-US",
+      "intent": {
+        "name": "AMAZON.CancelIntent",
+        "slots": {}
+      }
+    }
+  }
+}

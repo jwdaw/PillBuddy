@@ -1,0 +1,35 @@
+{
+  "manifest": {
+    "publishingInformation": {
+      "locales": {
+        "en-US": {
+          "summary": "Track your pill bottles with PillBuddy smart holder",
+          "examplePhrases": [
+            "Alexa, open pillbuddy",
+            "Alexa, ask pillbuddy what's my status",
+            "Alexa, tell pillbuddy to set up my bottles"
+          ],
+          "name": "PillBuddy",
+          "description": "PillBuddy helps you track your pill bottles using a smart holder with three slots. Set up your prescriptions, check pill counts, and get refill reminders through voice commands."
+        }
+      },
+      "isAvailableWorldwide": false,
+      "testingInstructions": "This is a hackathon project for testing purposes. Requires PillBuddy ESP32 hardware device.",
+      "category": "HEALTH_AND_FITNESS",
+      "distributionCountries": ["US"]
+    },
+    "apis": {
+      "custom": {
+        "endpoint": {
+          "uri": "arn:aws:lambda:us-east-1:ACCOUNT_ID:function:PillBuddy_AlexaHandler"
+        }
+      }
+    },
+    "permissions": [
+      {
+        "name": "alexa::devices:all:notifications:write"
+      }
+    ],
+    "manifestVersion": "1.0"
+  }
+}

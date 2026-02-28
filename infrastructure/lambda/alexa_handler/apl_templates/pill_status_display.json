@@ -1,0 +1,318 @@
+{
+  "type": "APL",
+  "version": "1.6",
+  "theme": "dark",
+  "import": [],
+  "resources": [
+    {
+      "colors": {
+        "colorPrimary": "#1A73E8",
+        "colorBackground": "#0D1117",
+        "colorText": "#FFFFFF",
+        "colorTextSecondary": "#8B949E",
+        "colorPresent": "#2EA043",
+        "colorMissing": "#6E7681",
+        "colorWarning": "#F85149",
+        "colorWarningAlt": "#FFA657"
+      },
+      "dimensions": {
+        "titleFontSize": "48dp",
+        "slotTitleFontSize": "28dp",
+        "prescriptionFontSize": "24dp",
+        "pillCountFontSize": "20dp",
+        "warningFontSize": "18dp",
+        "slotWidth": "30%",
+        "slotSpacing": "2%",
+        "iconSize": "80dp",
+        "warningIconSize": "24dp",
+        "containerPadding": "40dp",
+        "slotPadding": "20dp"
+      }
+    }
+  ],
+  "styles": {
+    "titleStyle": {
+      "values": [
+        {
+          "fontSize": "@titleFontSize",
+          "fontWeight": "700",
+          "color": "@colorText",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "slotContainerPresent": {
+      "values": [
+        {
+          "backgroundColor": "@colorPresent",
+          "borderRadius": "12dp",
+          "borderWidth": "2dp",
+          "borderColor": "@colorPresent"
+        }
+      ]
+    },
+    "slotContainerMissing": {
+      "values": [
+        {
+          "backgroundColor": "@colorMissing",
+          "borderRadius": "12dp",
+          "borderWidth": "2dp",
+          "borderColor": "@colorMissing",
+          "opacity": 0.5
+        }
+      ]
+    },
+    "slotContainerWarning": {
+      "values": [
+        {
+          "backgroundColor": "@colorWarning",
+          "borderRadius": "12dp",
+          "borderWidth": "2dp",
+          "borderColor": "@colorWarning"
+        }
+      ]
+    },
+    "prescriptionNameStyle": {
+      "values": [
+        {
+          "fontSize": "@prescriptionFontSize",
+          "fontWeight": "600",
+          "color": "@colorText",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "pillCountStyle": {
+      "values": [
+        {
+          "fontSize": "@pillCountFontSize",
+          "fontWeight": "400",
+          "color": "@colorText",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "warningTextStyle": {
+      "values": [
+        {
+          "fontSize": "@warningFontSize",
+          "fontWeight": "700",
+          "color": "@colorWarningAlt",
+          "textAlign": "center"
+        }
+      ]
+    },
+    "emptyTextStyle": {
+      "values": [
+        {
+          "fontSize": "@prescriptionFontSize",
+          "fontWeight": "400",
+          "color": "@colorTextSecondary",
+          "textAlign": "center",
+          "fontStyle": "italic"
+        }
+      ]
+    }
+  },
+  "layouts": {},
+  "mainTemplate": {
+    "parameters": ["payload"],
+    "items": [
+      {
+        "type": "Container",
+        "width": "100%",
+        "height": "100%",
+        "direction": "column",
+        "alignItems": "center",
+        "justifyContent": "center",
+        "paddingTop": "@containerPadding",
+        "paddingBottom": "@containerPadding",
+        "paddingLeft": "@containerPadding",
+        "paddingRight": "@containerPadding",
+        "items": [
+          {
+            "type": "Text",
+            "text": "PillBuddy Status",
+            "style": "titleStyle",
+            "paddingBottom": "40dp"
+          },
+          {
+            "type": "Container",
+            "width": "100%",
+            "height": "auto",
+            "direction": "row",
+            "alignItems": "stretch",
+            "justifyContent": "spaceAround",
+            "items": [
+              {
+                "type": "Container",
+                "width": "@slotWidth",
+                "direction": "column",
+                "alignItems": "center",
+                "justifyContent": "center",
+                "padding": "@slotPadding",
+                "style": "${payload.slots[0].in_holder ? (payload.slots[0].low_pill_warning ? 'slotContainerWarning' : 'slotContainerPresent') : 'slotContainerMissing'}",
+                "items": [
+                  {
+                    "type": "Text",
+                    "text": "Slot ${payload.slots[0].slot_number}",
+                    "fontSize": "@slotTitleFontSize",
+                    "fontWeight": "700",
+                    "color": "@colorText",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp"
+                  },
+                  {
+                    "type": "Text",
+                    "text": "💊",
+                    "fontSize": "@iconSize",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp",
+                    "opacity": "${payload.slots[0].in_holder ? 1.0 : 0.3}"
+                  },
+                  {
+                    "when": "${payload.slots[0].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[0].prescription_name}",
+                    "style": "prescriptionNameStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${!payload.slots[0].in_holder}",
+                    "type": "Text",
+                    "text": "Empty",
+                    "style": "emptyTextStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[0].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[0].pill_count} ${payload.slots[0].pill_count == 1 ? 'pill' : 'pills'} remaining",
+                    "style": "pillCountStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[0].low_pill_warning}",
+                    "type": "Text",
+                    "text": "⚠️ Low - Refill Soon",
+                    "style": "warningTextStyle"
+                  }
+                ]
+              },
+              {
+                "type": "Container",
+                "width": "@slotWidth",
+                "direction": "column",
+                "alignItems": "center",
+                "justifyContent": "center",
+                "padding": "@slotPadding",
+                "style": "${payload.slots[1].in_holder ? (payload.slots[1].low_pill_warning ? 'slotContainerWarning' : 'slotContainerPresent') : 'slotContainerMissing'}",
+                "items": [
+                  {
+                    "type": "Text",
+                    "text": "Slot ${payload.slots[1].slot_number}",
+                    "fontSize": "@slotTitleFontSize",
+                    "fontWeight": "700",
+                    "color": "@colorText",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp"
+                  },
+                  {
+                    "type": "Text",
+                    "text": "💊",
+                    "fontSize": "@iconSize",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp",
+                    "opacity": "${payload.slots[1].in_holder ? 1.0 : 0.3}"
+                  },
+                  {
+                    "when": "${payload.slots[1].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[1].prescription_name}",
+                    "style": "prescriptionNameStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${!payload.slots[1].in_holder}",
+                    "type": "Text",
+                    "text": "Empty",
+                    "style": "emptyTextStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[1].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[1].pill_count} ${payload.slots[1].pill_count == 1 ? 'pill' : 'pills'} remaining",
+                    "style": "pillCountStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[1].low_pill_warning}",
+                    "type": "Text",
+                    "text": "⚠️ Low - Refill Soon",
+                    "style": "warningTextStyle"
+                  }
+                ]
+              },
+              {
+                "type": "Container",
+                "width": "@slotWidth",
+                "direction": "column",
+                "alignItems": "center",
+                "justifyContent": "center",
+                "padding": "@slotPadding",
+                "style": "${payload.slots[2].in_holder ? (payload.slots[2].low_pill_warning ? 'slotContainerWarning' : 'slotContainerPresent') : 'slotContainerMissing'}",
+                "items": [
+                  {
+                    "type": "Text",
+                    "text": "Slot ${payload.slots[2].slot_number}",
+                    "fontSize": "@slotTitleFontSize",
+                    "fontWeight": "700",
+                    "color": "@colorText",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp"
+                  },
+                  {
+                    "type": "Text",
+                    "text": "💊",
+                    "fontSize": "@iconSize",
+                    "textAlign": "center",
+                    "paddingBottom": "10dp",
+                    "opacity": "${payload.slots[2].in_holder ? 1.0 : 0.3}"
+                  },
+                  {
+                    "when": "${payload.slots[2].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[2].prescription_name}",
+                    "style": "prescriptionNameStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${!payload.slots[2].in_holder}",
+                    "type": "Text",
+                    "text": "Empty",
+                    "style": "emptyTextStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[2].in_holder}",
+                    "type": "Text",
+                    "text": "${payload.slots[2].pill_count} ${payload.slots[2].pill_count == 1 ? 'pill' : 'pills'} remaining",
+                    "style": "pillCountStyle",
+                    "paddingBottom": "8dp"
+                  },
+                  {
+                    "when": "${payload.slots[2].low_pill_warning}",
+                    "type": "Text",
+                    "text": "⚠️ Low - Refill Soon",
+                    "style": "warningTextStyle"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

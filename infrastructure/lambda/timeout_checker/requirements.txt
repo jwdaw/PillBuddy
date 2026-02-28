@@ -1,0 +1,7 @@
+# AWS SDK for Python
+boto3>=1.28.0
+
+# No additional dependencies required - using built-in libraries
+# - json (built-in)
+# - os (built-in)
+# - time (built-in)

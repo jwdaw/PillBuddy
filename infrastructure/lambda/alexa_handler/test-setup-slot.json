@@ -1,0 +1,43 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.test123",
+    "application": {
+      "applicationId": "amzn1.ask.skill.test"
+    },
+    "user": {
+      "userId": "esp32_001"
+    },
+    "attributes": {
+      "device_id": "esp32_001",
+      "setup_state": {
+        "slots_configured": 0,
+        "current_slot": 1
+      }
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.test456",
+    "timestamp": "2024-01-01T00:01:00Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "SetupSlotIntent",
+      "slots": {
+        "prescriptionName": {
+          "name": "prescriptionName",
+          "value": "Aspirin"
+        },
+        "pillCount": {
+          "name": "pillCount",
+          "value": "30"
+        },
+        "hasRefills": {
+          "name": "hasRefills",
+          "value": "yes"
+        }
+      }
+    }
+  }
+}

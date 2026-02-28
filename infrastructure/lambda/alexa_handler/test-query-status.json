@@ -1,0 +1,23 @@
+{
+  "version": "1.0",
+  "session": {
+    "new": false,
+    "sessionId": "amzn1.echo-api.session.test123",
+    "application": {
+      "applicationId": "amzn1.ask.skill.test"
+    },
+    "user": {
+      "userId": "esp32_001"
+    }
+  },
+  "request": {
+    "type": "IntentRequest",
+    "requestId": "amzn1.echo-api.request.test202",
+    "timestamp": "2024-01-01T00:04:00Z",
+    "locale": "en-US",
+    "intent": {
+      "name": "QueryStatusIntent",
+      "slots": {}
+    }
+  }
+}
