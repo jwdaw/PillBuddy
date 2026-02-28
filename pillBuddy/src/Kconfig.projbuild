@@ -1,0 +1,115 @@
+menu "Example Configuration"
+
+    config WIFI_SSID
+        string "WiFi SSID"
+        default "myssid"
+        help
+            SSID (network name) for the example to connect to.
+
+    config WIFI_PASSWORD
+        string "WiFi Password"
+        default "mypassword"
+        help
+            WiFi password (WPA or WPA2) for the example to use.
+
+            Can be left blank if the network has no security set.
+
+    config AWS_EXAMPLE_CLIENT_ID
+        string "AWS IoT Client ID"
+        default "myesp32"
+        help
+            AWS IoT Client ID for the example. Should be unique for every device.
+
+    config PILL_DEVICE_ID
+        string "PillBuddy Device ID"
+        default "pillbuddy-esp32-1"
+        help
+            Unique device ID used in publish/subscribe MQTT topics.
+
+    config PILL_EVENT_TOPIC_BASE
+        string "PillBuddy event topic base"
+        default "pillbuddy/events"
+        help
+            Base topic where slot state events are published.
+
+    config PILL_COMMAND_TOPIC_BASE
+        string "PillBuddy command topic base"
+        default "pillbuddy/cmd"
+        help
+            Base topic subscribed for cloud LED control commands.
+
+    config PILL_SENSOR_DEBOUNCE_MS
+        int "Sensor debounce time (ms)"
+        default 120
+        range 10 2000
+        help
+            Debounce window for slot sensor transitions.
+
+    config PILL_SWITCH_USE_INTERNAL_PULLUP
+        bool "Use internal pull-up resistors for switch inputs"
+        default y
+        help
+            Enable if switches are active-low and don't have external pull-ups.
+
+    config PILL_SLOT1_SW_GPIO
+        int "Slot 1 switch GPIO (active-low)"
+        default 14
+
+    config PILL_SLOT2_SW_GPIO
+        int "Slot 2 switch GPIO (active-low)"
+        default 27
+
+    config PILL_SLOT3_SW_GPIO
+        int "Slot 3 switch GPIO (active-low)"
+        default 26
+
+    config PILL_SLOT1_LED_GPIO
+        int "Slot 1 LED GPIO"
+        default 25
+
+    config PILL_SLOT2_LED_GPIO
+        int "Slot 2 LED GPIO"
+        default 33
+
+    config PILL_SLOT3_LED_GPIO
+        int "Slot 3 LED GPIO"
+        default 32
+
+    choice EXAMPLE_CERT_SOURCE
+        prompt "AWS IoT Certificate Source"
+        default EXAMPLE_EMBEDDED_CERTS
+        help
+            AWS IoT requires loading of a device-specific certificate and private key,
+            and a common Root CA Certificate. These can be compiled into the example
+            app, or they can be loaded via the filesystem from an SD card.
+
+        config EXAMPLE_EMBEDDED_CERTS
+            bool "Embed into app"
+        config EXAMPLE_SDCARD_CERTS
+            bool "Load from SD card"
+            select EXAMPLE_FILESYSTEM_CERTS
+    endchoice
+
+    # Currently this is equivalent to EXAMPLE_SDCARD_CERTS,
+    # however eventually we want to support more filesystem
+    # sources (SPIFFS, etc.) So this hidden config item
+    # is selected whenever the item should load from filesystem.
+    config EXAMPLE_FILESYSTEM_CERTS
+        bool
+
+    config EXAMPLE_CERTIFICATE_PATH
+        string "Device Certificate Path"
+        depends on EXAMPLE_FILESYSTEM_CERTS
+        default "/sdcard/certificate.pem.crt"
+
+    config EXAMPLE_PRIVATE_KEY_PATH
+        string "Device Private Key Path"
+        depends on EXAMPLE_FILESYSTEM_CERTS
+        default "/sdcard/private.pem.key"
+
+    config EXAMPLE_ROOT_CA_PATH
+        string "Root CA Certificate Path"
+        depends on EXAMPLE_FILESYSTEM_CERTS
+        default "/sdcard/aws-root-ca.pem"
+
+endmenu
