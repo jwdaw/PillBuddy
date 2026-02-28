@@ -1,64 +1,76 @@
 env: load .env
 env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
 › Planning build
-› Preparing Pods/RNCAsyncStorage-RNCAsyncStorage_resources » ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist
-› Preparing Pods/ExpoFileSystem-ExpoFileSystem_privacy » ResourceBundle-ExpoFileSystem_privacy-ExpoFileSystem-Info.plist
-› Preparing Pods/EXConstants-ExpoConstants_privacy » ResourceBundle-ExpoConstants_privacy-EXConstants-Info.plist
+› Clean Succeeded
 › Executing react-native Pods/hermes-engine » [CP-User] [Hermes] Replace Hermes for the right configuration, if needed
 › Executing react-native Pods/ReactNativeDependencies » [CP-User] [RNDeps] Replace React Native Dependencies for the right configuration, if needed
-› Preparing expo-constants Pods/EXConstants-EXConstants » ResourceBundle-EXConstants-EXConstants-Info.plist
+› Copying   React-cxxreact/React-cxxreact_privacy.bundle/PrivacyInfo.xcprivacy ➜ node_modules/react-native/ReactCommon/cxxreact/PrivacyInfo.xcprivacy
 › Preparing Pods/React-cxxreact-React-cxxreact_privacy » ResourceBundle-React-cxxreact_privacy-React-cxxreact-Info.plist
+› Preparing Pods/RNCAsyncStorage-RNCAsyncStorage_resources » ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist
+› Copying   RNCAsyncStorage/RNCAsyncStorage_resources.bundle/PrivacyInfo.xcprivacy ➜ node_modules/@react-native-async-storage/async-storage/ios/PrivacyInfo.xcprivacy
+› Copying   React-Core/React-Core_privacy.bundle/PrivacyInfo.xcprivacy ➜ node_modules/react-native/React/Resources/PrivacyInfo.xcprivacy
 › Preparing Pods/React-Core-React-Core_privacy » ResourceBundle-React-Core_privacy-React-Core-Info.plist
+› Preparing Pods/ExpoFileSystem-ExpoFileSystem_privacy » ResourceBundle-ExpoFileSystem_privacy-ExpoFileSystem-Info.plist
+› Copying   ExpoFileSystem/ExpoFileSystem_privacy.bundle/PrivacyInfo.xcprivacy ➜ node_modules/expo/node_modules/expo-file-system/ios/PrivacyInfo.xcprivacy
+› Preparing Pods/EXConstants-ExpoConstants_privacy » ResourceBundle-ExpoConstants_privacy-EXConstants-Info.plist
+› Copying   EXConstants/ExpoConstants_privacy.bundle/PrivacyInfo.xcprivacy ➜ node_modules/expo/node_modules/expo-constants/ios/PrivacyInfo.xcprivacy
+› Preparing expo-constants Pods/EXConstants-EXConstants » ResourceBundle-EXConstants-EXConstants-Info.plist
+› Creating  Pods/RNCAsyncStorage-RNCAsyncStorage_resources » RNCAsyncStorage_resources.bundle
+› Creating  Pods/React-cxxreact-React-cxxreact_privacy » React-cxxreact_privacy.bundle
+› Creating  Pods/React-Core-React-Core_privacy » React-Core_privacy.bundle
+› Creating  Pods/ExpoFileSystem-ExpoFileSystem_privacy » ExpoFileSystem_privacy.bundle
+› Creating  Pods/EXConstants-ExpoConstants_privacy » ExpoConstants_privacy.bundle
+› Creating  expo-constants Pods/EXConstants-EXConstants » EXConstants.bundle
 › Executing react-native Pods/hermes-engine » [CP] Copy XCFrameworks
 › Executing react-native Pods/ReactNativeDependencies » [CP] Copy XCFrameworks
-› Executing react-native Pods/RCTSwiftUI » Copy generated compatibility header
 › Executing react-native Pods/React-Core-prebuilt » [CP-User] [RNDeps] Replace React Native Core for the right configuration, if needed
 › Executing react-native Pods/React-Core-prebuilt » [CP] Copy XCFrameworks
+› Executing react-native Pods/React-RCTFBReactNativeSpec » [CP-User] [RN]Check FBReactNativeSpec
+› Compiling expo-modules-core Pods/ExpoModulesJSI » TypedArray.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » ObjectDeallocator.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » MemoryBuffer.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » MainThreadInvoker.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » JSIUtils.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXStringUtils.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXRawJavaScriptFunction.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXRawJavaScriptArrayBuffer.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXNativeArrayBuffer.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptWeakObject.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptValue.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptTypedArray.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptRuntime.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptObjectBinding.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptObject.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJSIUtils.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJSIConversions.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXArrayBuffer.mm
+› Compiling expo Pods/ExpoLogBox » ExpoRedBoxSwap.mm
+› Compiling react-native Pods/RCTSwiftUI » RCTSwiftUI-dummy.m
+› Compiling react-native-get-random-values Pods/react-native-get-random-values » react-native-get-random-values-dummy.m
+› Compiling react-native-get-random-values Pods/react-native-get-random-values » RNGetRandomValues.m
+› Compiling expo-modules-core Pods/ExpoModulesJSI » ExpoModulesJSI-dummy.m
+› Compiling @expo/log-box Pods/ExpoLogBox » ExpoLogBox-dummy.m
+› Packaging expo-modules-core Pods/ExpoModulesJSI » libExpoModulesJSI.a
+› Packaging react-native Pods/RCTSwiftUI » libRCTSwiftUI.a
+› Executing react-native Pods/RCTSwiftUI » Copy generated compatibility header
+› Packaging @expo/log-box Pods/ExpoLogBox » libExpoLogBox.a
+› Packaging react-native-get-random-values Pods/react-native-get-random-values » libreact-native-get-random-values.a
+› Executing @expo/log-box Pods/ExpoLogBox » Copy generated compatibility header
 › Compiling react-native Pods/RCTSwiftUIWrapper » RCTSwiftUIWrapper-dummy.m
 › Compiling react-native Pods/RCTSwiftUIWrapper » RCTSwiftUIContainerViewWrapper.m
 › Packaging react-native Pods/RCTSwiftUIWrapper » libRCTSwiftUIWrapper.a
-› Executing react-native Pods/React-RCTFBReactNativeSpec » [CP-User] [RN]Check FBReactNativeSpec
-› Executing @expo/log-box Pods/ExpoLogBox » Copy generated compatibility header
 › Executing mobile-app Pods/ReactCodegen » [CP-User] Generate Specs
 › Compiling mobile-app Pods/ReactCodegen » safeareacontext-generated.mm
 › Compiling mobile-app Pods/ReactCodegen » rnscreens-generated.mm
 › Compiling mobile-app Pods/ReactCodegen » rngesturehandler_codegen-generated.mm
 › Compiling mobile-app Pods/ReactCodegen » rnasyncstorage-generated.mm
+› Compiling mobile-app Pods/ReactCodegen » States.cpp
+› Compiling mobile-app Pods/ReactCodegen » States.cpp
+› Compiling mobile-app Pods/ReactCodegen » States.cpp
+› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
+› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
+› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
 › Compiling mobile-app Pods/ReactCodegen » RCTUnstableModulesRequiringMainQueueSetupProvider.mm
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewState.cpp
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewShadowNode.cpp
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewComponentView.mm
-
-❌  (/Users/jwd/CuHackit26/mobile-app/node_modules/expo-modules-core/ios/Core/Views/SwiftUI/SwiftUIHostingView.swift:45:89)
-
-  43 |    A hosting view that renders a SwiftUI view inside the UIKit view hierarchy.
-  44 |    */
-> 45 |   public final class HostingView<Props: ViewProps, ContentView: View<Props>>: ExpoView, @MainActor AnyExpoSwiftUIHostingView {
-     |                                                                                         ^ unknown attribute 'MainActor'
-  46 |     /**
-  47 |      Props object that stores all the props for this particular view.
-  48 |      It's an environment object that is observed by the content view.
-
-
-❌  (/Users/jwd/CuHackit26/mobile-app/node_modules/expo-modules-core/ios/Core/Views/ViewDefinition.swift:121:19)
-
-  119 | }
-  120 |
-> 121 | extension UIView: @MainActor AnyArgument {
-      |                   ^ unknown attribute 'MainActor'
-  122 |   public static func getDynamicType() -> AnyDynamicType {
-  123 |     return DynamicViewType(innerType: Self.self)
-  124 |   }
-
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaProviderComponentView.mm
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaContext.mm
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling mobile-app Pods/ReactCodegen » ReactCodegen-dummy.m
 › Compiling mobile-app Pods/ReactCodegen » RCTThirdPartyComponentsProvider.mm
 › Compiling mobile-app Pods/ReactCodegen » RCTModulesConformingToProtocolsProvider.mm
 › Compiling mobile-app Pods/ReactCodegen » RCTModuleProviders.mm
@@ -70,37 +82,19 @@ env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
 › Compiling mobile-app Pods/ReactCodegen » EventEmitters.cpp
 › Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
 › Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
-    Run script build phase '[CP-User] [Hermes] Replace Hermes for the right configuration, if needed' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'hermes-engine' from project 'Pods')
-
-› 2 error(s), and 1 warning(s)
-
-CommandError: Failed to build iOS project. "xcodebuild" exited with error code 65.
-env: load .env
-env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
-› Planning build
-› Preparing Pods/RNCAsyncStorage-RNCAsyncStorage_resources » ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist
-› Preparing Pods/ExpoFileSystem-ExpoFileSystem_privacy » ResourceBundle-ExpoFileSystem_privacy-ExpoFileSystem-Info.plist
-› Preparing Pods/EXConstants-ExpoConstants_privacy » ResourceBundle-ExpoConstants_privacy-EXConstants-Info.plist
-› Executing react-native Pods/hermes-engine » [CP-User] [Hermes] Replace Hermes for the right configuration, if needed
-› Executing react-native Pods/ReactNativeDependencies » [CP-User] [RNDeps] Replace React Native Dependencies for the right configuration, if needed
-› Preparing expo-constants Pods/EXConstants-EXConstants » ResourceBundle-EXConstants-EXConstants-Info.plist
-› Preparing Pods/React-cxxreact-React-cxxreact_privacy » ResourceBundle-React-cxxreact_privacy-React-cxxreact-Info.plist
-› Preparing Pods/React-Core-React-Core_privacy » ResourceBundle-React-Core_privacy-React-Core-Info.plist
-› Executing react-native Pods/React-Core-prebuilt » [CP-User] [RNDeps] Replace React Native Core for the right configuration, if needed
-› Executing react-native Pods/React-RCTFBReactNativeSpec » [CP-User] [RN]Check FBReactNativeSpec
-› Compiling mobile-app Pods/ReactCodegen » safeareacontext-generated.mm
-› Compiling mobile-app Pods/ReactCodegen » rnscreens-generated.mm
-› Compiling mobile-app Pods/ReactCodegen » rngesturehandler_codegen-generated.mm
-› Compiling mobile-app Pods/ReactCodegen » RCTThirdPartyComponentsProvider.mm
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
-› Compiling mobile-app Pods/ReactCodegen » rnasyncstorage-generated.mm
-› Compiling mobile-app Pods/ReactCodegen » RCTUnstableModulesRequiringMainQueueSetupProvider.mm
-› Compiling mobile-app Pods/ReactAppDependencyProvider » RCTAppDependencyProvider.mm
-› Compiling mobile-app Pods/ReactCodegen » States.cpp
+› Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
 › Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewState.cpp
 › Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewShadowNode.cpp
 › Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewComponentView.mm
+› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaProviderComponentView.mm
+› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaContext.mm
+› Compiling mobile-app Pods/ReactCodegen » ReactCodegen-dummy.m
+› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » react-native-safe-area-context-dummy.m
+› Packaging mobile-app Pods/ReactCodegen » libReactCodegen.a
+› Compiling mobile-app Pods/ReactAppDependencyProvider » RCTAppDependencyProvider.mm
+› Compiling react-native-screens Pods/RNScreens » UIWindow+RNScreens.mm
+› Compiling react-native-screens Pods/RNScreens » UIViewController+RNScreens.mm
+› Compiling react-native-screens Pods/RNScreens » UIView+RNSUtility.mm
 
 ❌  (/Users/jwd/CuHackit26/mobile-app/node_modules/expo-modules-core/ios/ReactDelegates/ExpoReactDelegate.swift:41:39)
 
@@ -321,24 +315,12 @@ env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
   123 |     return DynamicViewType(innerType: Self.self)
   124 |   }
 
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaProviderComponentView.mm
-› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaContext.mm
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling mobile-app Pods/ReactCodegen » ShadowNodes.cpp
-› Compiling mobile-app Pods/ReactCodegen » RCTModulesConformingToProtocolsProvider.mm
-› Compiling mobile-app Pods/ReactCodegen » RCTModuleProviders.mm
-› Compiling mobile-app Pods/ReactCodegen » Props.cpp
-› Compiling mobile-app Pods/ReactCodegen » Props.cpp
-› Compiling mobile-app Pods/ReactCodegen » Props.cpp
-› Compiling mobile-app Pods/ReactCodegen » EventEmitters.cpp
-› Compiling mobile-app Pods/ReactCodegen » EventEmitters.cpp
-› Compiling mobile-app Pods/ReactCodegen » EventEmitters.cpp
-› Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
-› Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
-› Compiling mobile-app Pods/ReactCodegen » ComponentDescriptors.cpp
-› Compiling react-native-screens Pods/RNScreens » UIViewController+RNScreens.mm
+› Compiling react-native-screens Pods/RNScreens » UIScrollView+RNScreens.mm
+› Compiling mobile-app Pods/ReactAppDependencyProvider » ReactAppDependencyProvider-dummy.m
+› Compiling react-native-screens Pods/RNScreens » UINavigationBar+RNSUtility.mm
+› Compiling react-native-screens Pods/RNScreens » RNScreensTurboModule.cpp
 › Compiling react-native-screens Pods/RNScreens » RNSViewInteractionManager.mm
+› Compiling react-native-screens Pods/RNScreens » RNSViewControllerInvalidator.mm
 › Compiling react-native-screens Pods/RNScreens » RNSTabsScreenViewController.mm
 › Compiling react-native-screens Pods/RNScreens » RNSTabBarControllerDelegate.mm
 › Compiling react-native-screens Pods/RNScreens » RNSTabBarController.mm
@@ -346,7 +328,7 @@ env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
 › Compiling react-native-screens Pods/RNScreens » RNSSplitViewScreenShadowNode.cpp
 › Compiling react-native-screens Pods/RNScreens » RNSSearchBar.mm
 › Compiling react-native-screens Pods/RNScreens » RNSScrollViewHelper.mm
-› Packaging mobile-app Pods/ReactCodegen » libReactCodegen.a
+› Compiling react-native-screens Pods/RNScreens » RNSScrollViewFinder.mm
 › Compiling react-native-screens Pods/RNScreens » RNSScrollEdgeEffectApplicator.mm
 › Compiling react-native-screens Pods/RNScreens » RNSScreenWindowTraits.mm
 › Compiling react-native-screens Pods/RNScreens » RNSScreenViewEvent.mm
@@ -357,22 +339,6 @@ env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
 › Compiling react-native-screens Pods/RNScreens » RNSScreenStackHeaderConfigState.cpp
 › Compiling react-native-screens Pods/RNScreens » RNSScreenStackHeaderConfigShadowNode.cpp
 › Compiling react-native-screens Pods/RNScreens » RNSScreenStackHeaderConfig.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenStackAnimator.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenStack.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenShadowNodeCommitHook.cpp
-› Compiling react-native-screens Pods/RNScreens » RNSScreenShadowNode.cpp
-› Compiling react-native-screens Pods/RNScreens » RNSScreenRemovalListener.cpp
-› Compiling react-native-screens Pods/RNScreens » RNSScreenNavigationContainer.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenFooter.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenContentWrapper.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreenContainer.mm
-› Compiling react-native-screens Pods/RNScreens » RNSScreen.mm
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewState.cpp
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewShadowView.mm
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewShadowNode.cpp
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewManager.mm
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewLocalData.mm
-› Compiling react-native-screens Pods/RNScreens » RNSSafeAreaViewEdges.mm
     Run script build phase '[CP-User] [Hermes] Replace Hermes for the right configuration, if needed' will be run during every build because it does not specify any outputs. To address this issue, either add output dependencies to the script phase, or configure it to run in every build by unchecking "Based on dependency analysis" in the script phase. (in target 'hermes-engine' from project 'Pods')
 
 › 20 error(s), and 1 warning(s)

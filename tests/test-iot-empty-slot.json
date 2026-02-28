@@ -1,0 +1,10 @@
+{
+  "device_id": "pillbuddy-esp32-1",
+  "event_type": "slot_state_changed",
+  "slot": 1,
+  "in_holder": false,
+  "ts_ms": 1709155200000,
+  "sequence": 1,
+  "state": "not_in_holder",
+  "sensor_level": 0
+}

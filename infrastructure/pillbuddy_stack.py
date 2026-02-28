@@ -210,6 +210,75 @@ class PillBuddyStack(Stack):
         #   --principal alexa-appkit.amazon.com \
         #   --event-source-token YOUR_SKILL_ID
 
+        # IoT Event Processor Lambda Function
+        # Create Lambda execution role
+        iot_lambda_role = iam.Role(
+            self,
+            "IoTEventProcessorRole",
+            assumed_by=iam.ServicePrincipal("lambda.amazonaws.com"),
+            managed_policies=[
+                iam.ManagedPolicy.from_aws_managed_policy_name(
+                    "service-role/AWSLambdaBasicExecutionRole"
+                )
+            ],
+            description="Execution role for IoT Event Processor Lambda"
+        )
+
+        # Grant DynamoDB permissions
+        self.devices_table.grant_read_write_data(iot_lambda_role)
+        self.prescriptions_table.grant_read_write_data(iot_lambda_role)
+        self.events_table.grant_read_write_data(iot_lambda_role)
+
+        # Grant IoT publish permissions
+        iot_lambda_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=["iot:Publish"],
+                resources=[f"arn:aws:iot:{self.region}:{self.account}:topic/pillbuddy/cmd/*"]
+            )
+        )
+
+        # Get callUser Lambda ARN from context
+        call_user_lambda_arn = self.node.try_get_context("call_user_lambda_arn") or "arn:aws:lambda:us-east-1:339712753637:function:callUser"
+
+        # Grant Lambda invoke permissions for callUser Lambda
+        iot_lambda_role.add_to_policy(
+            iam.PolicyStatement(
+                actions=["lambda:InvokeFunction"],
+                resources=[call_user_lambda_arn]
+            )
+        )
+
+        # Create IoT Event Processor Lambda function
+        self.iot_event_processor = lambda_.Function(
+            self,
+            "IoTEventProcessor",
+            function_name="PillBuddy_IoTEventProcessor",
+            runtime=lambda_.Runtime.PYTHON_3_11,
+            handler="lambda_function.lambda_handler",
+            code=lambda_.Code.from_asset("lambda/iot_event_processor"),
+            timeout=Duration.seconds(30),
+            memory_size=256,
+            environment={
+                "DEVICES_TABLE": self.devices_table.table_name,
+                "PRESCRIPTIONS_TABLE": self.prescriptions_table.table_name,
+                "EVENTS_TABLE": self.events_table.table_name,
+                "IOT_ENDPOINT": iot_endpoint,
+                "CALL_USER_LAMBDA_ARN": call_user_lambda_arn
+            },
+            role=iot_lambda_role,
+            description="IoT Event Processor for PillBuddy ESP32 device events"
+        )
+
+        # Export Lambda ARN
+        self.export_value(
+            self.iot_event_processor.function_arn,
+            name="PillBuddyIoTEventProcessorArn"
+        )
+
+        # Create IoT Rule to forward device events to Lambda
+        from iot_rule_config import create_iot_event_rule
+        self.iot_rule = create_iot_event_rule(self, self.iot_event_processor, self.iot_rule_role)
+
         # IoT Rule will be created when Lambda function is added in task 5
         # See infrastructure/iot_rule_config.py for the rule configuration
         # The rule forwards messages from 'pillbuddy/events/+' to the IoT Event Processor Lambda
