@@ -1,0 +1,46 @@
+env: load .env
+env: export AWS_ACCESS_KEY_ID AWS_IOT_ENDPOINT AWS_REGION AWS_SECRET_ACCESS_KEY
+› Planning build
+› Executing react-native Pods/hermes-engine » [CP-User] [Hermes] Replace Hermes for the right configuration, if needed
+› Executing react-native Pods/ReactNativeDependencies » [CP-User] [RNDeps] Replace React Native Dependencies for the right configuration, if needed
+› Preparing Pods/React-Core-React-Core_privacy » ResourceBundle-React-Core_privacy-React-Core-Info.plist
+› Preparing Pods/RNCAsyncStorage-RNCAsyncStorage_resources » ResourceBundle-RNCAsyncStorage_resources-RNCAsyncStorage-Info.plist
+› Preparing Pods/EXConstants-ExpoConstants_privacy » ResourceBundle-ExpoConstants_privacy-EXConstants-Info.plist
+› Preparing Pods/React-cxxreact-React-cxxreact_privacy » ResourceBundle-React-cxxreact_privacy-React-cxxreact-Info.plist
+› Preparing expo-constants Pods/EXConstants-EXConstants » ResourceBundle-EXConstants-EXConstants-Info.plist
+› Preparing Pods/ExpoFileSystem-ExpoFileSystem_privacy » ResourceBundle-ExpoFileSystem_privacy-ExpoFileSystem-Info.plist
+› Executing react-native Pods/hermes-engine » [CP] Copy XCFrameworks
+› Executing react-native Pods/ReactNativeDependencies » [CP] Copy XCFrameworks
+› Compiling react-native Pods/RCTSwiftUI » RCTSwiftUI-dummy.m
+› Executing react-native Pods/React-Core-prebuilt » [CP-User] [RNDeps] Replace React Native Core for the right configuration, if needed
+› Packaging react-native Pods/RCTSwiftUI » libRCTSwiftUI.a
+› Executing react-native Pods/RCTSwiftUI » Copy generated compatibility header
+› Executing react-native Pods/React-Core-prebuilt » [CP] Copy XCFrameworks
+› Compiling react-native Pods/RCTSwiftUIWrapper » RCTSwiftUIWrapper-dummy.m
+› Compiling react-native Pods/RCTSwiftUIWrapper » RCTSwiftUIContainerViewWrapper.m
+› Packaging react-native Pods/RCTSwiftUIWrapper » libRCTSwiftUIWrapper.a
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXArrayBuffer.mm
+› Executing react-native Pods/React-RCTFBReactNativeSpec » [CP-User] [RN]Check FBReactNativeSpec
+› Executing mobile-app Pods/ReactCodegen » [CP-User] Generate Specs
+› Compiling react-native-get-random-values Pods/react-native-get-random-values » react-native-get-random-values-dummy.m
+› Compiling react-native-get-random-values Pods/react-native-get-random-values » RNGetRandomValues.m
+› Compiling expo-modules-core Pods/ExpoModulesJSI » ObjectDeallocator.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » TypedArray.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » MemoryBuffer.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » MainThreadInvoker.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » JSIUtils.cpp
+› Packaging react-native-get-random-values Pods/react-native-get-random-values » libreact-native-get-random-values.a
+› Compiling expo-modules-core Pods/ExpoModulesJSI » ExpoModulesJSI-dummy.m
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXStringUtils.cpp
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXRawJavaScriptFunction.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXRawJavaScriptArrayBuffer.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXNativeArrayBuffer.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptWeakObject.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptValue.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptTypedArray.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptRuntime.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptObjectBinding.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJavaScriptObject.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJSIUtils.mm
+› Compiling expo-modules-core Pods/ExpoModulesJSI » EXJSIConversions.mm
+› Compiling react-native-safe-area-context Pods/react-native-safe-area-context » RNCSafeAreaViewState.cpp

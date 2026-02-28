@@ -1,1 +1,7 @@
 .kiro
+
+# Mobile app environment variables (AWS credentials)
+mobile-app/.env
+mobile-app/.env.local
+mobile-app/.env.production
+
