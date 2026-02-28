@@ -107,7 +107,7 @@ npx expo start
 5. **Voice Setup**: Insert a new bottle → receive AI phone call to configure medication details
 6. **Monitoring**: Check status anytime via mobile app or Alexa
 
-## 📊 System Flow
+## 📊 High Level System Flow
 
 ```mermaid
 graph LR
